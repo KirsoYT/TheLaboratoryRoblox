@@ -7,111 +7,58 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(to right, #000000, #1a1a1a);
-      color: #00ff99;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      text-align: left;
+    :root{
+      --neon:#00ff99;
+      --bg1:#000000;
+      --bg2:#1a1a1a;
+      --panel:rgba(0,0,0,.55);
     }
 
-    h1 {
-      font-size: 28px;
-      margin: 20px 0;
-      text-align: center;
-      width: 100%;
+    *{box-sizing:border-box}
+    body{
+      margin:0; padding:0;
+      font-family:'Press Start 2P', cursive;
+      background:linear-gradient(to right, var(--bg1), var(--bg2));
+      color:var(--neon);
+      display:flex; flex-direction:column; align-items:center;
+      min-height:100vh; text-align:left;
     }
+    h1{font-size:28px; margin:20px 0; text-align:center; width:100%}
+    .nav-buttons{display:flex; justify-content:center; margin-bottom:20px; flex-wrap:wrap; gap:10px}
+    .nav-buttons a{
+      display:inline-block; padding:12px 20px; font-size:14px;
+      background-color:var(--neon); color:#000; text-decoration:none;
+      border-radius:8px; transition:.3s background-color;
+    }
+    .nav-buttons a:hover{background-color:#00cc77}
 
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+    .accordion{width:90%; max-width:980px; margin-bottom:40px}
+    .accordion button{
+      background-color:rgba(0,0,0,.6); color:var(--neon); cursor:pointer;
+      padding:18px; width:100%; border:2px solid var(--neon);
+      text-align:left; outline:none; font-size:16px; border-radius:8px; margin-bottom:6px;
+      transition:.25s background-color;
     }
+    .accordion button:hover{background-color:rgba(0,255,153,.2)}
+    .panel{
+      padding:0 18px; background-color:var(--panel);
+      max-height:0; overflow:hidden; transition:max-height .3s ease-out;
+      border:2px solid var(--neon); border-top:none; border-radius:0 0 8px 8px;
+    }
+    .scroll{
+      max-height:60vh; overflow:auto; padding:18px 0;
+    }
+    .panel p{margin:15px 0; line-height:1.5}
+    .section-title{margin:22px 0 10px; font-size:16px; text-transform:uppercase}
+    hr{border:none; border-top:2px solid var(--neon); opacity:.35; margin:16px 0}
 
-    .nav-buttons a {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 5px;
-      font-size: 14px;
-      background-color: #00ff99;
-      color: #000;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+    .character{display:flex; align-items:flex-start; gap:14px; margin:10px 0}
+    .character img{
+      width:60px; height:auto; border:2px solid var(--neon); border-radius:8px; flex:0 0 auto;
     }
+    .character p{margin:0}
 
-    .nav-buttons a:hover {
-      background-color: #00cc77;
-    }
-
-    .accordion {
-      width: 90%;
-      max-width: 900px;
-      margin-bottom: 40px;
-    }
-
-    .accordion button {
-      background-color: rgba(0,0,0,0.6);
-      color: #00ff99;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: 2px solid #00ff99;
-      text-align: left;
-      outline: none;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-      border-radius: 8px;
-      margin-bottom: 5px;
-    }
-
-    .accordion button:hover {
-      background-color: rgba(0, 255, 153, 0.2);
-    }
-
-    .panel {
-      padding: 0 18px;
-      background-color: rgba(0,0,0,0.5);
-      max-height: 0;
-      overflow-y: auto;
-      transition: max-height 0.3s ease-out;
-      border-left: 2px solid #00ff99;
-      border-right: 2px solid #00ff99;
-      border-bottom: 2px solid #00ff99;
-      border-radius: 0 0 8px 8px;
-    }
-
-    .panel p {
-      margin: 15px 0;
-      line-height: 1.4em;
-    }
-
-    .character {
-      display: flex;
-      align-items: flex-start;
-      margin: 10px 0;
-    }
-
-    .character img {
-      width: 60px;
-      height: auto;
-      margin-right: 15px;
-      border: 2px solid #00ff99;
-      border-radius: 8px;
-    }
-
-    footer {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #666;
-      text-align: center;
-    }
+    footer{margin:24px 0 40px; font-size:12px; color:#888; text-align:center}
   </style>
 </head>
 <body>
@@ -124,145 +71,91 @@
   </div>
 
   <div class="accordion">
+    <!-- ESPAÑOL -->
     <button>Español ⚠️ ALERTA DE SPOILER ⚠️</button>
     <div class="panel">
-      <h3>Introducción y Lore Completo</h3>
+      <div class="scroll">
+        <p class="section-title">Introducción</p>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Clover parpadeó lentamente cuando las luces blancas y estériles del techo entraron en foco. Su cabeza latía; no recordaba cómo ni por qué se había desmayado, solo el vacío repentino de la conciencia. Al intentar incorporarse, unas frías correas metálicas lo mantenían inmóvil.</p>
+        </div>
+        <div class="character">
+          <img src="Mark.png" alt="Mark">
+          <p>Al otro lado, Mark —su amigo más cercano— también recobraba el sentido. Sus miradas se cruzaron, cargadas de confusión. El laboratorio guardaba silencio salvo por el zumbido uniforme de las máquinas. Monitores con datos incomprensibles parpadeaban; cámaras de vidrio, alineadas en las paredes, escondían sombras que sugerían vida… o experimentos.</p>
+        </div>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>«Tenemos que descubrir por qué estamos aquí y salir antes de que noten que despertamos», susurró Clover. Pensando rápido, logró desactivar las cámaras; los monitores se atenuaron. Juntos rompieron una ventana y escaparon del área de observación.</p>
+        </div>
 
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Clover parpadeó lentamente mientras las luces blancas y estériles del techo entraban en foco. Su cabeza latía con fuerza—no podía recordar cómo ni por qué se había desmayado, solo el vacío repentino de la conciencia.</p>
-      </div>
+        <hr>
+        <p class="section-title">Puzles y caída al nivel inferior</p>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>En otra sala, tras subir por un piso intermedio, hallaron cubos de colores. Contando los de cada color, dedujeron el código <strong>117</strong> y avanzaron. Mientras buscaban una salida subterránea, Clover pisó una baldosa defectuosa; el piso cedió y ambos cayeron a un nivel inferior. Esa caída quedó reflejada en el juego con un suelo que colapsa.</p>
+        </div>
 
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Cuando intentó incorporarse, unas frías restricciones metálicas lo mantenían inmóvil sobre la mesa.</p>
-      </div>
+        <hr>
+        <p class="section-title">Revelación: Mark → Cyborg Mark</p>
+        <div class="character">
+          <img src="CyborgMark.png" alt="Cyborg Mark">
+          <p>En el caos, una presencia familiar y aterradora hizo vibrar el pulso de Clover: una silueta con movimientos bruscos, ojos apagados y una respiración asistida por componentes mecánicos. Era <strong>Cyborg Mark</strong>. No era un experimento cualquiera; era <strong>Mark mismo</strong>.</p>
+        </div>
+        <div class="character">
+          <img src="CyborgMark.png" alt="Cyborg Mark">
+          <p>Tiempo atrás, Mark había muerto durante un incidente en el laboratorio. Los científicos lo reconstruyeron con implantes y rutinas de control. Conservaba recuerdos fragmentados, suficiente humanidad para buscar ayuda, pero su cuerpo reforzado y la programación interferían con su voluntad.</p>
+        </div>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Intentó acercarse a Clover para “explicarse”, pero su fuerza desmedida lo traicionó: al sujetarlo, lo golpeó con demasiada potencia. <strong>Clover quedó gravemente herido</strong>, apenas consciente, aunque con vida.</p>
+        </div>
 
-      <div class="character">
-        <img src="Mark.png" alt="Mark">
-        <p>Al otro lado de la habitación, otra figura se movía: Mark, su amigo más cercano. Sus miradas se encontraron, llenas de confusión y desasosiego.</p>
-      </div>
+        <hr>
+        <p class="section-title">Persecución contenida y decisión</p>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Entre corredores con cámaras de contención y laboratorios sellados, Clover avanzó como pudo. Marcadores de emergencia titilaban “Fase III”; protocolos automáticos bloqueaban puertas tras su paso. Al final del sector, una consola exigía un patrón de tres símbolos: presión, temperatura y ritmo eléctrico. El registro de cámaras mostraba a Mark “antes” y a Cyborg Mark “después”. Era la misma persona.</p>
+        </div>
+        <div class="character">
+          <img src="CyborgMark.png" alt="Cyborg Mark">
+          <p>Cyborg Mark lo siguió sin intención de matar: su gesto era suplicante, pero su rigidez mecánica generaba pánico. Clover introdujo el patrón correcto. Se abrió una esclusa y el aire frío golpeó su rostro. Tenía dos opciones: sellar la compuerta tras él —dejando a Cyborg Mark dentro— o mantenerla abierta y arriesgarse.</p>
+        </div>
 
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>El laboratorio estaba en silencio, salvo por el zumbido constante de las máquinas. Monitores extraños parpadeaban con datos incomprensibles, y cámaras de vidrio llenaban las paredes, cada una albergando sombras que sugerían vida—o experimentos—en su interior.</p>
-      </div>
+        <hr>
+        <p class="section-title">Clímax</p>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Una alarma subió de tono. La compuerta empezó a cerrarse. Clover, temblando y herido, extendió la mano hacia el panel de override. A través del vidrio, los ojos de Cyborg Mark —fríos y, aun así, humanos— parecieron pedir perdón. El metal chirrió. El cierre fue total. Silencio.</p>
+        </div>
 
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>El pulso de Clover se aceleró. Quien los había traído allí, no lo había hecho por accidente. Mientras Mark luchaba por liberarse de sus propias restricciones, Clover susurró: “Tenemos que descubrir por qué estamos aquí... y encontrar una salida antes de que alguien note que estamos despiertos.”</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Pensando rápido, Clover logró apagar las cámaras de seguridad, atenuando los monitores que los vigilaban. Él y Mark rompieron una ventana cercana, creando una vía de escape fuera del área de observación del laboratorio.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Después, se encontraban en otra habitación donde, gracias a un piso más arriba, lograron encontrar un conjunto de cubos de colores. Contando cuidadosamente cuántos había de cada color, descifraron el código 117, lo ingresaron y pudieron avanzar a la siguiente sección del laboratorio.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Mientras exploraban, intentando encontrar una salida subterránea, Clover rompió el piso de un pasillo por accidente. Ambos cayeron a un nivel inferior, por eso en el juego hay un piso que se cae.</p>
-      </div>
-
-      <div class="character">
-        <img src="CyborgMark.png" alt="CyborgMark">
-        <p>En medio del caos, una presencia familiar y aterradora hizo que el corazón de Clover latiera con fuerza. La creación de los investigadores—Experimento 116, la versión monstruosa de Mark—lo perseguía, pero no para hacerle daño directamente.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Mark solo quería pedir ayuda, pero al usar tanta fuerza al intentar agarrar a Clover para comunicarse, lo golpeó accidentalmente con demasiada fuerza. Clover cayó al suelo, gravemente herido, apenas consciente, pero no muerto.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Aunque logró escapar de algunas amenazas iniciales, el destino de Clover seguía siendo incierto. El laboratorio era una instalación enorme y ominosa, llena de plataformas de observación, cámaras de experimentos, celdas de contención y laboratorios de investigación. Las máquinas zumbaban constantemente, muchas habitaciones contenían sombras de experimentos incompletos, y la instalación operaba con total secreto, su verdadero propósito conocido solo por quienes estaban dentro.</p>
+        <hr>
+        <p class="section-title">Desenlace y cliffhanger</p>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Clover avanzó por el corredor final hasta una plataforma de observación. Bajo él, una red de salas iluminadas dejaba ver siluetas en suspensión y prototipos a medio ensamblar. En el borde del mirador, una placa: <em>“Proyecto: Regreso”</em>. Un terminal encendido mostró un log:</p>
+        </div>
+        <div class="character">
+          <img src="CyborgMark.png" alt="Cyborg Mark">
+          <p><em>“Sujeto 116: Reanimación exitosa. Memoria: fragmentaria. Autonomía: limitada. Vínculo emocional: persistente. Riesgo: elevado.”</em> Bajo esa línea, otra más reciente: <em>“Sujeto 117: Preparación iniciada.”</em></p>
+        </div>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Clover comprendió: no era el final, sino el comienzo de algo más grande. La pantalla parpadeó y una puerta lateral se desbloqueó con un clic magnético. Con el cuerpo maltrecho pero la determinación encendida, dio un paso hacia la oscuridad controlada del siguiente módulo.</p>
+        </div>
+        <p><strong>Fin del Capítulo 1.</strong></p>
       </div>
     </div>
 
+    <!-- ENGLISH -->
     <button>English ⚠️ SPOILER ALERT ⚠️</button>
     <div class="panel">
-      <h3>Introduction and Full Lore</h3>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Clover blinked slowly as the harsh, sterile lights above came into focus. His head throbbed—he couldn’t remember how or why he had collapsed, only the sudden void of consciousness.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>When he tried to sit up, cold metal restraints held him pinned to the table.</p>
-      </div>
-
-      <div class="character">
-        <img src="Mark.png" alt="Mark">
-        <p>Across the room, another figure stirred—Mark, his closest friend. Their eyes met, filled with confusion and unease.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>The laboratory was silent except for the steady hum of machines. Strange monitors flickered with unreadable data, and glass chambers lined the walls, each containing shadows that hinted at life—or experiments—within.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Clover’s pulse quickened. Whoever had brought them here hadn’t done it by accident. As Mark struggled against his own restraints, Clover whispered: “We have to figure out why we’re here... and find a way out before anyone notices we’re awake.”</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Thinking quickly, Clover managed to turn off the security cameras, dimming the monitors that scanned the room. He and Mark broke a nearby window, creating an opening to escape the lab’s observation area.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Later, they found themselves in another room where, thanks to a floor above, they discovered a set of colored cubes. Carefully counting how many there were of each color, they deciphered the code 117, entered it, and were able to proceed to the next section of the laboratory.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>While exploring and trying to find an underground exit, Clover accidentally broke the floor of a hallway. Both he and Mark fell to a lower level, which explains why there is a falling floor in the game.</p>
-      </div>
-
-      <div class="character">
-        <img src="CyborgMark.png" alt="CyborgMark">
-        <p>In the chaos, a familiar and terrifying presence made Clover’s heart race. The researchers’ creation—Experiment 116, the monstrous version of Mark—was pursuing him, but not to harm him directly.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Mark only wanted to ask for help, but by using so much strength while trying to grab Clover to communicate, he accidentally struck him too hard. Clover fell to the ground, severely injured and barely conscious, but not dead.</p>
-      </div>
-
-      <div class="character">
-        <img src="Clover.png" alt="Clover">
-        <p>Although Clover managed to escape some of the initial threats, his ultimate fate remained uncertain. The laboratory itself was a sprawling, ominous facility filled with observation decks, experiment chambers, containment cells, and research labs. Machines hummed constantly, shadows of incomplete experiments lingered in many rooms, and the facility operated in complete secrecy, its true purpose known only to those within.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 Kirso Web. Todos los derechos reservados.
-  </footer>
-
-  <script>
-    const acc = document.getElementsByClassName("accordion")[0].getElementsByTagName("button");
-    for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        const panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
-    }
-  </script>
-</body>
-</html>
-
+      <div class="scroll">
+        <p class="section-title">Introduction</p>
+        <div class="character">
+          <img src="Clover.png" alt="Clover">
+          <p>Clover blinked as the harsh, sterile ceiling lights came into focus. His skull throbbed; he couldn’t remember how or why he blacked out—only the sudden void of consciousness. When he tried to rise, cold metal straps kept him pinned.</p>
+        </div>
+        <div class="character">
+          <img src="Mark.png" alt="Mark">
+          <p>Across the room, Mark —his closest friend— was also waking up. Their eyes met, heavy with confusion.
