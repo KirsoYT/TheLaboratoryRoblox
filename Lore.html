@@ -16,22 +16,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
       text-align: left;
-      padding: 20px;
     }
 
     h1 {
       font-size: 28px;
-      margin-bottom: 10px;
+      margin: 20px 0;
       text-align: center;
+      width: 100%;
     }
 
-    .buttons {
-      text-align: center;
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
-    .button {
+    .nav-buttons a {
       display: inline-block;
       padding: 12px 20px;
       margin: 5px;
@@ -43,40 +47,68 @@
       transition: background-color 0.3s ease;
     }
 
-    .button:hover {
+    .nav-buttons a:hover {
       background-color: #00cc77;
     }
 
-    .section {
-      margin-bottom: 30px;
+    .accordion {
       width: 90%;
       max-width: 900px;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      padding: 15px;
-      box-sizing: border-box;
-      max-height: 500px;
-      overflow-y: auto;
+      margin-bottom: 40px;
     }
 
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .section h3 {
+    .accordion button {
+      background-color: rgba(0,0,0,0.6);
+      color: #00ff99;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: 2px solid #00ff99;
+      text-align: left;
+      outline: none;
       font-size: 16px;
-      margin-bottom: 10px;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      margin-bottom: 5px;
     }
 
-    p {
-      font-size: 14px;
-      margin-bottom: 10px;
-      line-height: 1.3em;
+    .accordion button:hover {
+      background-color: rgba(0, 255, 153, 0.2);
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: rgba(0,0,0,0.5);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      border-left: 2px solid #00ff99;
+      border-right: 2px solid #00ff99;
+      border-bottom: 2px solid #00ff99;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .panel p {
+      margin: 15px 0;
+      line-height: 1.4em;
+    }
+
+    .character {
+      display: flex;
+      align-items: flex-start;
+      margin: 10px 0;
+    }
+
+    .character img {
+      width: 60px;
+      height: auto;
+      margin-right: 15px;
+      border: 2px solid #00ff99;
+      border-radius: 8px;
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 12px;
       color: #666;
       text-align: center;
@@ -84,72 +116,94 @@
   </style>
 </head>
 <body>
-  <h1>Lore de The Laboratory</h1>
+  <h1>Lore - The Laboratory: Path Towards to Light</h1>
 
-  <div class="buttons">
-    <a href="index.html" class="button">Inicio</a>
-    <a href="Noticias.html" class="button">Novedades</a>
-    <a href="Creditos.html" class="button">Créditos</a>
+  <div class="nav-buttons">
+    <a href="index.html">Inicio</a>
+    <a href="Noticias.html">Novedades</a>
+    <a href="Creditos.html">Créditos</a>
   </div>
 
-  <div class="section">
-    <h2>Es</h2>
-    <p>⚠️ ALERTA DE SPOILER ⚠️</p>
-    <p>El siguiente texto contiene detalles de la historia de The Laboratory: Path Towards to Light.</p>
-    <h3>Lore: Clover y Mark (Capítulo 1)</h3>
-    <p>Clover parpadeó lentamente mientras las luces blancas y estériles del techo entraban en foco.</p>
-    <p>Su cabeza latía con fuerza—no podía recordar cómo ni por qué se había desmayado, solo el vacío repentino de la conciencia.</p>
-    <p>Cuando intentó incorporarse, unas frías restricciones metálicas lo mantenían inmóvil sobre la mesa.</p>
-    <p>Al otro lado de la habitación, otra figura se movía: Mark, su amigo más cercano. Sus miradas se encontraron, llenas de confusión y desasosiego.</p>
-    <p>El laboratorio estaba en silencio, salvo por el zumbido constante de las máquinas. Monitores extraños parpadeaban con datos incomprensibles,</p>
-    <p>y cámaras de vidrio llenaban las paredes, cada una albergando sombras que sugerían vida—o experimentos—en su interior.</p>
-    <p>El pulso de Clover se aceleró. Quien los había traído allí, no lo había hecho por accidente.</p>
-    <p>Mientras Mark luchaba por liberarse de sus propias restricciones, Clover susurró:</p>
-    <p>“Tenemos que descubrir por qué estamos aquí... y encontrar una salida antes de que alguien note que estamos despiertos.”</p>
-    <p>Pensando rápido, Clover logró apagar las cámaras de seguridad, atenuando los monitores que los vigilaban.</p>
-    <p>Él y Mark rompieron una ventana cercana, creando una vía de escape fuera del área de observación del laboratorio.</p>
-    <p>Después, se encontraban en otra habitación donde, gracias a un piso más arriba, lograron encontrar un conjunto de cubos de colores.</p>
-    <p>Contando cuidadosamente cuántos había de cada color, descifraron el código 117, lo ingresaron y pudieron avanzar a la siguiente sección del laboratorio.</p>
-    <p>Mientras exploraban, intentando encontrar una salida subterránea, Clover rompió el piso de un pasillo por accidente.</p>
-    <p>Ambos cayeron a un nivel inferior, por eso en el juego hay un piso que se cae.</p>
-    <p>En medio del caos, una presencia familiar y aterradora hizo que el corazón de Clover latiera con fuerza.</p>
-    <p>La creación de los investigadores—Experimento 116, la versión monstruosa de Mark—lo perseguía, pero no para hacerle daño.</p>
-    <p>Mark solo quería pedir ayuda, pero al usar tanta fuerza al intentar agarrar a Clover para comunicarse, accidentalmente lo mató.</p>
-    <p>Aunque logró escapar de algunas amenazas iniciales, el destino de Clover seguía siendo incierto.</p>
-    <p>El laboratorio era una instalación enorme y ominosa, llena de plataformas de observación, cámaras de experimentos, celdas de contención y laboratorios de investigación.</p>
-    <p>Las máquinas zumbaban constantemente, muchas habitaciones contenían sombras de experimentos incompletos, y la instalación operaba con total secreto, su verdadero propósito conocido solo por quienes estaban dentro.</p>
-  </div>
+  <div class="accordion">
+    <button>Español ⚠️ ALERTA DE SPOILER ⚠️</button>
+    <div class="panel">
+      <h3>Lore: Clover y Mark (Capítulo 1)</h3>
 
-  <div class="section">
-    <h2>En</h2>
-    <p>⚠️ SPOILER ALERT ⚠️</p>
-    <p>The following text contains story details from The Laboratory: Path Towards to Light.</p>
-    <h3>Lore: Clover and Mark (Chapter 1)</h3>
-    <p>Clover blinked slowly as the harsh, sterile lights above came into focus.</p>
-    <p>His head throbbed—he couldn’t remember how or why he had collapsed, only the sudden void of consciousness.</p>
-    <p>When he tried to sit up, cold metal restraints held him pinned to the table.</p>
-    <p>Across the room, another figure stirred—Mark, his closest friend. Their eyes met, filled with confusion and unease.</p>
-    <p>The laboratory was silent except for the steady hum of machines. Strange monitors flickered with unreadable data,</p>
-    <p>and glass chambers lined the walls, each containing shadows that hinted at life—or experiments—within.</p>
-    <p>Clover’s pulse quickened. Whoever had brought them here hadn’t done it by accident.</p>
-    <p>As Mark struggled against his own restraints, Clover whispered,</p>
-    <p>“We have to figure out why we’re here... and find a way out before anyone notices we’re awake.”</p>
-    <p>Thinking quickly, Clover managed to turn off the security cameras, dimming the monitors that scanned the room.</p>
-    <p>He and Mark broke a nearby window, creating an opening to escape the lab’s observation area.</p>
-    <p>Later, they found themselves in another room where, thanks to a floor above, they discovered a set of colored cubes.</p>
-    <p>Carefully counting how many there were of each color, they deciphered the code 117, entered it, and were able to proceed to the next section of the laboratory.</p>
-    <p>While exploring and trying to find an underground exit, Clover accidentally broke the floor of a hallway.</p>
-    <p>Both he and Mark fell to a lower level, which explains why there is a falling floor in the game.</p>
-    <p>In the chaos, a familiar and terrifying presence made Clover’s heart race.</p>
-    <p>The researchers’ creation—Experiment 116, the monstrous version of Mark—was pursuing him, but not to harm him.</p>
-    <p>Mark only wanted to ask for help, but by using so much strength while trying to grab Clover to communicate, he accidentally killed him.</p>
-    <p>Although Clover managed to escape some of the initial threats, his ultimate fate remained uncertain.</p>
-    <p>The laboratory itself was a sprawling, ominous facility filled with observation decks, experiment chambers, containment cells, and research labs.</p>
-    <p>Machines hummed constantly, shadows of incomplete experiments lingered in many rooms, and the facility operated in complete secrecy, its true purpose known only to those within.</p>
+      <div class="character">
+        <img src="Clover.png" alt="Clover">
+        <p>Clover parpadeó lentamente mientras las luces blancas y estériles del techo entraban en foco.</p>
+      </div>
+
+      <div class="character">
+        <img src="Clover.png" alt="Clover">
+        <p>Su cabeza latía con fuerza—no podía recordar cómo ni por qué se había desmayado, solo el vacío repentino de la conciencia.</p>
+      </div>
+
+      <div class="character">
+        <img src="Mark.png" alt="Mark">
+        <p>Al otro lado de la habitación, otra figura se movía: Mark, su amigo más cercano. Sus miradas se encontraron, llenas de confusión y desasosiego.</p>
+      </div>
+
+      <div class="character">
+        <img src="CyborgMark.png" alt="CyborgMark">
+        <p>La creación de los investigadores—Experimento 116, la versión monstruosa de Mark—lo perseguía, pero no para hacerle daño directamente.</p>
+      </div>
+
+      <div class="character">
+        <img src="Clover.png" alt="Clover">
+        <p>Mark solo quería pedir ayuda, pero al usar tanta fuerza al intentar agarrar a Clover para comunicarse, lo golpeó accidentalmente con demasiada fuerza. Clover cayó al suelo, gravemente herido, apenas consciente, pero no muerto.</p>
+      </div>
+    </div>
+
+    <button>English ⚠️ SPOILER ALERT ⚠️</button>
+    <div class="panel">
+      <h3>Lore: Clover and Mark (Chapter 1)</h3>
+
+      <div class="character">
+        <img src="Clover.png" alt="Clover">
+        <p>Clover blinked slowly as the harsh, sterile lights above came into focus.</p>
+      </div>
+
+      <div class="character">
+        <img src="Clover.png" alt="Clover">
+        <p>His head throbbed—he couldn’t remember how or why he had collapsed, only the sudden void of consciousness.</p>
+      </div>
+
+      <div class="character">
+        <img src="Mark.png" alt="Mark">
+        <p>Across the room, another figure stirred—Mark, his closest friend. Their eyes met, filled with confusion and unease.</p>
+      </div>
+
+      <div class="character">
+        <img src="CyborgMark.png" alt="CyborgMark">
+        <p>The researchers’ creation—Experiment 116, the monstrous version of Mark—was pursuing him, but not to harm him directly.</p>
+      </div>
+
+      <div class="character">
+        <img src="Clover.png" alt="Clover">
+        <p>Mark only wanted to ask for help, but by using so much strength while trying to grab Clover to communicate, he accidentally struck him too hard. Clover fell to the ground, severely injured and barely conscious, but not dead.</p>
+      </div>
+    </div>
   </div>
 
   <footer>
     © 2025 Kirso Web. Todos los derechos reservados.
   </footer>
+
+  <script>
+    const acc = document.getElementsByClassName("accordion")[0].getElementsByTagName("button");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+
